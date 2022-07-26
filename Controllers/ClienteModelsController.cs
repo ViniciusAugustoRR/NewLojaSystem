@@ -10,89 +10,87 @@ using LojaSystem.Models;
 
 namespace LojaSystem.Controllers
 {
-    public class MarcaModelsController : Controller
+    public class ClienteModelsController : Controller
     {
         private readonly AppDBContext _context;
 
-        public MarcaModelsController(AppDBContext context)
+        public ClienteModelsController(AppDBContext context)
         {
             _context = context;
         }
 
-        // GET: MarcaModels
+        // GET: ClienteModels
         public async Task<IActionResult> Index()
         {
-            
-            return _context.Marcas != null ?
-                        View(await _context.Marcas.ToListAsync()) :
-                        Problem("Entity set 'AppDBContext.Marcas'  is null.");
-            
+              return _context.Clientes != null ? 
+                          View(await _context.Clientes.ToListAsync()) :
+                          Problem("Entity set 'AppDBContext.Clientes'  is null.");
         }
 
-        // GET: MarcaModels/Details/5
+        // GET: ClienteModels/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Marcas == null)
+            if (id == null || _context.Clientes == null)
             {
                 return NotFound();
             }
 
-            var marcaModel = await _context.Marcas
-                .FirstOrDefaultAsync(m => m.IdMarca == id);
-            if (marcaModel == null)
+            var clienteModel = await _context.Clientes
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (clienteModel == null)
             {
                 return NotFound();
             }
 
-            return View(marcaModel);
+            return View(clienteModel);
         }
 
-        // GET: MarcaModels/Create
+        // GET: ClienteModels/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: MarcaModels/Create
+        // POST: ClienteModels/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdMarca,NomeMarca")] MarcaModel marcaModel)
+        public async Task<IActionResult> Create([Bind("Id,Name,Adress,Telefone,Email")] ClienteModel clienteModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(marcaModel);
+                _context.Add(clienteModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(marcaModel);
+            return View(clienteModel);
         }
 
-        // GET: MarcaModels/Edit/5
+        // GET: ClienteModels/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Marcas == null)
+            if (id == null || _context.Clientes == null)
             {
                 return NotFound();
             }
 
-            var marcaModel = await _context.Marcas.FindAsync(id);
-            if (marcaModel == null)
+            var clienteModel = await _context.Clientes.FindAsync(id);
+            if (clienteModel == null)
             {
                 return NotFound();
             }
-            return View(marcaModel);
+            return View(clienteModel);
         }
 
-        // POST: MarcaModels/Edit/5
+        // POST: ClienteModels/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdMarca,NomeMarca")] MarcaModel marcaModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Adress,Telefone,Email")] ClienteModel clienteModel)
         {
-            if (id != marcaModel.IdMarca)
+            if (id != clienteModel.Id)
             {
                 return NotFound();
             }
@@ -101,12 +99,12 @@ namespace LojaSystem.Controllers
             {
                 try
                 {
-                    _context.Update(marcaModel);
+                    _context.Update(clienteModel);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MarcaModelExists(marcaModel.IdMarca))
+                    if (!ClienteModelExists(clienteModel.Id))
                     {
                         return NotFound();
                     }
@@ -117,49 +115,49 @@ namespace LojaSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(marcaModel);
+            return View(clienteModel);
         }
 
-        // GET: MarcaModels/Delete/5
+        // GET: ClienteModels/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Marcas == null)
+            if (id == null || _context.Clientes == null)
             {
                 return NotFound();
             }
 
-            var marcaModel = await _context.Marcas
-                .FirstOrDefaultAsync(m => m.IdMarca == id);
-            if (marcaModel == null)
+            var clienteModel = await _context.Clientes
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (clienteModel == null)
             {
                 return NotFound();
             }
 
-            return View(marcaModel);
+            return View(clienteModel);
         }
 
-        // POST: MarcaModels/Delete/5
+        // POST: ClienteModels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Marcas == null)
+            if (_context.Clientes == null)
             {
-                return Problem("Entity set 'AppDBContext.Marcas'  is null.");
+                return Problem("Entity set 'AppDBContext.Clientes'  is null.");
             }
-            var marcaModel = await _context.Marcas.FindAsync(id);
-            if (marcaModel != null)
+            var clienteModel = await _context.Clientes.FindAsync(id);
+            if (clienteModel != null)
             {
-                _context.Marcas.Remove(marcaModel);
+                _context.Clientes.Remove(clienteModel);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MarcaModelExists(int id)
+        private bool ClienteModelExists(int id)
         {
-          return (_context.Marcas?.Any(e => e.IdMarca == id)).GetValueOrDefault();
+          return (_context.Clientes?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

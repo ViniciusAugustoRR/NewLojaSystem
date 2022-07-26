@@ -10,89 +10,87 @@ using LojaSystem.Models;
 
 namespace LojaSystem.Controllers
 {
-    public class MarcaModelsController : Controller
+    public class ResponsavelModelsController : Controller
     {
         private readonly AppDBContext _context;
 
-        public MarcaModelsController(AppDBContext context)
+        public ResponsavelModelsController(AppDBContext context)
         {
             _context = context;
         }
 
-        // GET: MarcaModels
+        // GET: ResponsavelModels
         public async Task<IActionResult> Index()
         {
-            
-            return _context.Marcas != null ?
-                        View(await _context.Marcas.ToListAsync()) :
-                        Problem("Entity set 'AppDBContext.Marcas'  is null.");
-            
+              return _context.Responsaveis != null ? 
+                          View(await _context.Responsaveis.ToListAsync()) :
+                          Problem("Entity set 'AppDBContext.Responsaveis'  is null.");
         }
 
-        // GET: MarcaModels/Details/5
+        // GET: ResponsavelModels/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Marcas == null)
+            if (id == null || _context.Responsaveis == null)
             {
                 return NotFound();
             }
 
-            var marcaModel = await _context.Marcas
-                .FirstOrDefaultAsync(m => m.IdMarca == id);
-            if (marcaModel == null)
+            var responsavelModel = await _context.Responsaveis
+                .FirstOrDefaultAsync(m => m.IdResponsavel == id);
+            if (responsavelModel == null)
             {
                 return NotFound();
             }
 
-            return View(marcaModel);
+            return View(responsavelModel);
         }
 
-        // GET: MarcaModels/Create
+        // GET: ResponsavelModels/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: MarcaModels/Create
+        // POST: ResponsavelModels/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdMarca,NomeMarca")] MarcaModel marcaModel)
+        public async Task<IActionResult> Create([Bind("IdResponsavel,NameResponsavel,CategoriaResponsavel")] ResponsavelModel responsavelModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(marcaModel);
+                _context.Add(responsavelModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(marcaModel);
+            return View(responsavelModel);
         }
 
-        // GET: MarcaModels/Edit/5
+        // GET: ResponsavelModels/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Marcas == null)
+            if (id == null || _context.Responsaveis == null)
             {
                 return NotFound();
             }
 
-            var marcaModel = await _context.Marcas.FindAsync(id);
-            if (marcaModel == null)
+            var responsavelModel = await _context.Responsaveis.FindAsync(id);
+            if (responsavelModel == null)
             {
                 return NotFound();
             }
-            return View(marcaModel);
+            return View(responsavelModel);
         }
 
-        // POST: MarcaModels/Edit/5
+        // POST: ResponsavelModels/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdMarca,NomeMarca")] MarcaModel marcaModel)
+        public async Task<IActionResult> Edit(int id, [Bind("IdResponsavel,NameResponsavel,CategoriaResponsavel")] ResponsavelModel responsavelModel)
         {
-            if (id != marcaModel.IdMarca)
+            if (id != responsavelModel.IdResponsavel)
             {
                 return NotFound();
             }
@@ -101,12 +99,12 @@ namespace LojaSystem.Controllers
             {
                 try
                 {
-                    _context.Update(marcaModel);
+                    _context.Update(responsavelModel);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MarcaModelExists(marcaModel.IdMarca))
+                    if (!ResponsavelModelExists(responsavelModel.IdResponsavel))
                     {
                         return NotFound();
                     }
@@ -117,49 +115,49 @@ namespace LojaSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(marcaModel);
+            return View(responsavelModel);
         }
 
-        // GET: MarcaModels/Delete/5
+        // GET: ResponsavelModels/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Marcas == null)
+            if (id == null || _context.Responsaveis == null)
             {
                 return NotFound();
             }
 
-            var marcaModel = await _context.Marcas
-                .FirstOrDefaultAsync(m => m.IdMarca == id);
-            if (marcaModel == null)
+            var responsavelModel = await _context.Responsaveis
+                .FirstOrDefaultAsync(m => m.IdResponsavel == id);
+            if (responsavelModel == null)
             {
                 return NotFound();
             }
 
-            return View(marcaModel);
+            return View(responsavelModel);
         }
 
-        // POST: MarcaModels/Delete/5
+        // POST: ResponsavelModels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Marcas == null)
+            if (_context.Responsaveis == null)
             {
-                return Problem("Entity set 'AppDBContext.Marcas'  is null.");
+                return Problem("Entity set 'AppDBContext.Responsaveis'  is null.");
             }
-            var marcaModel = await _context.Marcas.FindAsync(id);
-            if (marcaModel != null)
+            var responsavelModel = await _context.Responsaveis.FindAsync(id);
+            if (responsavelModel != null)
             {
-                _context.Marcas.Remove(marcaModel);
+                _context.Responsaveis.Remove(responsavelModel);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MarcaModelExists(int id)
+        private bool ResponsavelModelExists(int id)
         {
-          return (_context.Marcas?.Any(e => e.IdMarca == id)).GetValueOrDefault();
+          return (_context.Responsaveis?.Any(e => e.IdResponsavel == id)).GetValueOrDefault();
         }
     }
 }

@@ -10,89 +10,87 @@ using LojaSystem.Models;
 
 namespace LojaSystem.Controllers
 {
-    public class MarcaModelsController : Controller
+    public class EquipamentoesController : Controller
     {
         private readonly AppDBContext _context;
 
-        public MarcaModelsController(AppDBContext context)
+        public EquipamentoesController(AppDBContext context)
         {
             _context = context;
         }
 
-        // GET: MarcaModels
+        // GET: Equipamentoes
         public async Task<IActionResult> Index()
         {
-            
-            return _context.Marcas != null ?
-                        View(await _context.Marcas.ToListAsync()) :
-                        Problem("Entity set 'AppDBContext.Marcas'  is null.");
-            
+              return _context.Equipamentos != null ? 
+                          View(await _context.Equipamentos.ToListAsync()) :
+                          Problem("Entity set 'AppDBContext.Equipamentos'  is null.");
         }
 
-        // GET: MarcaModels/Details/5
+        // GET: Equipamentoes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Marcas == null)
+            if (id == null || _context.Equipamentos == null)
             {
                 return NotFound();
             }
 
-            var marcaModel = await _context.Marcas
-                .FirstOrDefaultAsync(m => m.IdMarca == id);
-            if (marcaModel == null)
+            var equipamento = await _context.Equipamentos
+                .FirstOrDefaultAsync(m => m.IdEquipamento == id);
+            if (equipamento == null)
             {
                 return NotFound();
             }
 
-            return View(marcaModel);
+            return View(equipamento);
         }
 
-        // GET: MarcaModels/Create
+        // GET: Equipamentoes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: MarcaModels/Create
+        // POST: Equipamentoes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdMarca,NomeMarca")] MarcaModel marcaModel)
+        public async Task<IActionResult> Create([Bind("IdEquipamento,NumeroSerie,Nome,Acessorios")] Equipamento equipamento)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(marcaModel);
+                _context.Add(equipamento);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(marcaModel);
+            return View(equipamento);
         }
 
-        // GET: MarcaModels/Edit/5
+        // GET: Equipamentoes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Marcas == null)
+            if (id == null || _context.Equipamentos == null)
             {
                 return NotFound();
             }
 
-            var marcaModel = await _context.Marcas.FindAsync(id);
-            if (marcaModel == null)
+            var equipamento = await _context.Equipamentos.FindAsync(id);
+            if (equipamento == null)
             {
                 return NotFound();
             }
-            return View(marcaModel);
+            return View(equipamento);
         }
 
-        // POST: MarcaModels/Edit/5
+        // POST: Equipamentoes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdMarca,NomeMarca")] MarcaModel marcaModel)
+        public async Task<IActionResult> Edit(int id, [Bind("IdEquipamento,NumeroSerie,Nome,Acessorios")] Equipamento equipamento)
         {
-            if (id != marcaModel.IdMarca)
+            if (id != equipamento.IdEquipamento)
             {
                 return NotFound();
             }
@@ -101,12 +99,12 @@ namespace LojaSystem.Controllers
             {
                 try
                 {
-                    _context.Update(marcaModel);
+                    _context.Update(equipamento);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MarcaModelExists(marcaModel.IdMarca))
+                    if (!EquipamentoExists(equipamento.IdEquipamento))
                     {
                         return NotFound();
                     }
@@ -117,49 +115,49 @@ namespace LojaSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(marcaModel);
+            return View(equipamento);
         }
 
-        // GET: MarcaModels/Delete/5
+        // GET: Equipamentoes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Marcas == null)
+            if (id == null || _context.Equipamentos == null)
             {
                 return NotFound();
             }
 
-            var marcaModel = await _context.Marcas
-                .FirstOrDefaultAsync(m => m.IdMarca == id);
-            if (marcaModel == null)
+            var equipamento = await _context.Equipamentos
+                .FirstOrDefaultAsync(m => m.IdEquipamento == id);
+            if (equipamento == null)
             {
                 return NotFound();
             }
 
-            return View(marcaModel);
+            return View(equipamento);
         }
 
-        // POST: MarcaModels/Delete/5
+        // POST: Equipamentoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Marcas == null)
+            if (_context.Equipamentos == null)
             {
-                return Problem("Entity set 'AppDBContext.Marcas'  is null.");
+                return Problem("Entity set 'AppDBContext.Equipamentos'  is null.");
             }
-            var marcaModel = await _context.Marcas.FindAsync(id);
-            if (marcaModel != null)
+            var equipamento = await _context.Equipamentos.FindAsync(id);
+            if (equipamento != null)
             {
-                _context.Marcas.Remove(marcaModel);
+                _context.Equipamentos.Remove(equipamento);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MarcaModelExists(int id)
+        private bool EquipamentoExists(int id)
         {
-          return (_context.Marcas?.Any(e => e.IdMarca == id)).GetValueOrDefault();
+          return (_context.Equipamentos?.Any(e => e.IdEquipamento == id)).GetValueOrDefault();
         }
     }
 }
