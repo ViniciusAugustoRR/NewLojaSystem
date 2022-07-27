@@ -1,0 +1,41 @@
+﻿@model IEnumerable<LojaSystem.Models.Marca>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card">
+    <div class="card-body">
+
+        <h2>Marcas Registradas</h2>
+        <input class="btn btn-primary" type="button" value="Registrar Nova Marca" onclick="location.href='@Url.Action("Create", "Marcas")'" />
+
+        <hr />
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NomeMarca)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+        @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NomeMarca)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.IdMarca">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.IdMarca">Detalhes</a> |
+                        <a asp-action="Delete" asp-route-id="@item.IdMarca">Excluir</a>
+                    </td>
+                </tr>
+        }
+            </tbody>
+        </table>
+
+    </div>
+</div>

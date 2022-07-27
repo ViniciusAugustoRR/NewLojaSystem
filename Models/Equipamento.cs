@@ -7,10 +7,18 @@ namespace LojaSystem.Models
     {
         [Key]
         public int IdEquipamento { get; set; }
-        public string? NumeroSerie { get; set; }
-        public string? Nome { get; set; }
-        public MarcaModel? MarcaEquipamento { get; set; }
-        public string? Acessorios { get; set; }
 
+        [Display(Name="Número de Série")]
+        public string? NumeroSerie { get; set; }
+        [Display(Name = "Nome")]
+        public string? Nome { get; set; }
+        [Display(Name = "Acessórios")]
+        public string? Acessorios { get; set; }
+        [Display(Name = "Marca")]
+        public Marca? MarcaEquipamento { get; set; }
+        [ForeignKey("MarcaEquipamento")]
+        [Display(Name = "Marca")]
+        public int MarcaFK { get; set; }
     }
+
 }
