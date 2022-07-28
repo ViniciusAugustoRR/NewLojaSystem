@@ -8,13 +8,11 @@ namespace LojaSystem.DB
 
         public AppDBContext(DbContextOptions<AppDBContext> options) : base(options)
         {}
-
-        //public DbSet<ClienteModel> Clientes { get; set; }
         public DbSet<Marca> Marcas { get; set; }
         public DbSet<Equipamento> Equipamentos { get; set; }
         public DbSet<Cliente> Cliente { get; set; }
-        //public DbSet<ResponsavelModel> Responsaveis { get; set; }
-        //public DbSet<ServicoModel> Servicos{ get; set; }
+        public DbSet<NivelResponsavel> Responsaveis { get; set; }
+        public DbSet<Responsavel> Servicos{ get; set; }
 
     }
 }

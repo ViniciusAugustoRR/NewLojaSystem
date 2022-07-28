@@ -1,0 +1,40 @@
+﻿@model IEnumerable<LojaSystem.Models.NivelResponsavel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card">
+    <div class="card-body">
+        
+        <h2>Níveis Registrados</h2>
+        <input class="btn btn-primary" type="button" value="Registrar Novo Nível" onclick="location.href='@Url.Action("Create", "NivelResponsaveis")'" />
+
+        <hr />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nivel)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+        @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nivel)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.IdNivel">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.IdNivel">Detalhes</a> |
+                        <a asp-action="Delete" asp-route-id="@item.IdNivel">Excluir</a>
+                    </td>
+                </tr>
+        }
+            </tbody>
+        </table>
+
+    </div>
+</div>

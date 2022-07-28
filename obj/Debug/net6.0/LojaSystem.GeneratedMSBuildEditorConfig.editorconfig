@@ -8,97 +8,137 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LojaSystem
 build_property.RootNamespace = LojaSystem
-build_property.ProjectDir = C:\Users\augusto\Desktop\PJ\LojaSystem\NewLojaSystem\
+build_property.ProjectDir = C:\Users\iarar\Desktop\Py\newLoja\NewLojaSystem\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\augusto\Desktop\PJ\LojaSystem\NewLojaSystem
+build_property.MSBuildProjectDirectory = C:\Users\iarar\Desktop\Py\newLoja\NewLojaSystem
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Clientes/Create.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Clientes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Clientes/Delete.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Clientes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Clientes/Details.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Clientes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Clientes/Edit.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Clientes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Clientes/Index.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Clientes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Equipamentos/Create.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Equipamentos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBhbWVudG9zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Equipamentos/Delete.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Equipamentos/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBhbWVudG9zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Equipamentos/Details.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Equipamentos/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBhbWVudG9zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Equipamentos/Edit.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Equipamentos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBhbWVudG9zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Equipamentos/Index.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Equipamentos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBhbWVudG9zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Home/Index.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Home/Privacy.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Marcas/Create.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Marcas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Marcas/Delete.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Marcas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Marcas/Details.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Marcas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Marcas/Edit.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Marcas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Marcas/Index.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Marcas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Shared/Error.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/NivelResponsaveis/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTml2ZWxSZXNwb25zYXZlaXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/NivelResponsaveis/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTml2ZWxSZXNwb25zYXZlaXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/NivelResponsaveis/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTml2ZWxSZXNwb25zYXZlaXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/NivelResponsaveis/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTml2ZWxSZXNwb25zYXZlaXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/NivelResponsaveis/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTml2ZWxSZXNwb25zYXZlaXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Responsaveis/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzcG9uc2F2ZWlzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Responsaveis/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzcG9uc2F2ZWlzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Responsaveis/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzcG9uc2F2ZWlzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Responsaveis/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzcG9uc2F2ZWlzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Responsaveis/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzcG9uc2F2ZWlzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/_ViewImports.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/_ViewStart.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/augusto/Desktop/PJ/LojaSystem/NewLojaSystem/Views/Shared/_Layout.cshtml]
+[C:/Users/iarar/Desktop/Py/newLoja/NewLojaSystem/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-5j72ve72ud

@@ -1,0 +1,31 @@
+﻿@model LojaSystem.Models.NivelResponsavel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Excluir</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h4>Certeza de que quer Excluir esse Nivel?</h4>
+        <div>
+            <hr />
+            <dl class="row">
+                <dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.Nivel)
+                </dt>
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.Nivel)
+                </dd>
+            </dl>
+    
+            <br />
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="IdNivel" />
+                <input type="submit" value="Excluir" class="btn btn-danger" /> |
+                <a asp-action="Index">Back to List</a>
+            </form>
+        </div>
+    </div>
+</div>
