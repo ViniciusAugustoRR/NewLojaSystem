@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Scripts\**" />
+    <Content Remove="Scripts\**" />
+    <EmbeddedResource Remove="Scripts\**" />
+    <None Remove="Scripts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\js\Requisicoes.js" />
   </ItemGroup>
 
@@ -24,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Scripts\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

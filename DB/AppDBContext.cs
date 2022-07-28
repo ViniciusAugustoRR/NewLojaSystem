@@ -11,8 +11,9 @@ namespace LojaSystem.DB
         public DbSet<Marca> Marcas { get; set; }
         public DbSet<Equipamento> Equipamentos { get; set; }
         public DbSet<Cliente> Cliente { get; set; }
-        public DbSet<NivelResponsavel> Responsaveis { get; set; }
-        public DbSet<Responsavel> Servicos{ get; set; }
+        public DbSet<NivelResponsavel> NivelResponsaveis { get; set; }
+        public DbSet<Responsavel> Responsaveis{ get; set; }
+        public DbSet<Servico>? Servico { get; set; }
 
     }
 }

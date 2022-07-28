@@ -3,14 +3,14 @@
 @{
     ViewData["Title"] = "Delete";
 }
-
-<h2>Excluir</h2>
+<h2>Deletar Nível</h2>
 
 <div class="card">
     <div class="card-body">
-        <h4>Certeza de que quer Excluir esse Nivel?</h4>
+        <h4>Certeza de que quer Deletar esse Nível?</h4>
+        <hr />
+
         <div>
-            <hr />
             <dl class="row">
                 <dt class = "col-sm-2">
                     @Html.DisplayNameFor(model => model.Nivel)
@@ -23,8 +23,8 @@
             <br />
             <form asp-action="Delete">
                 <input type="hidden" asp-for="IdNivel" />
-                <input type="submit" value="Excluir" class="btn btn-danger" /> |
-                <a asp-action="Index">Back to List</a>
+                <input type="submit" value="Deletar" class="btn btn-danger" /> |
+                <a asp-action="Index">Retornar para a Lista</a>
             </form>
         </div>
     </div>

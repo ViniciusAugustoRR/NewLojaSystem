@@ -22,20 +22,20 @@ namespace LojaSystem.Controllers
         // GET: NivelResponsaveis
         public async Task<IActionResult> Index()
         {
-              return _context.Responsaveis != null ? 
-                          View(await _context.Responsaveis.ToListAsync()) :
-                          Problem("Entity set 'AppDBContext.Responsaveis'  is null.");
+              return _context.NivelResponsaveis != null ? 
+                          View(await _context.NivelResponsaveis.ToListAsync()) :
+                          Problem("Entity set 'AppDBContext.NivelResponsaveis'  is null.");
         }
 
         // GET: NivelResponsaveis/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Responsaveis == null)
+            if (id == null || _context.NivelResponsaveis == null)
             {
                 return NotFound();
             }
 
-            var nivelResponsavel = await _context.Responsaveis
+            var nivelResponsavel = await _context.NivelResponsaveis
                 .FirstOrDefaultAsync(m => m.IdNivel == id);
             if (nivelResponsavel == null)
             {
@@ -70,12 +70,12 @@ namespace LojaSystem.Controllers
         // GET: NivelResponsaveis/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Responsaveis == null)
+            if (id == null || _context.NivelResponsaveis == null)
             {
                 return NotFound();
             }
 
-            var nivelResponsavel = await _context.Responsaveis.FindAsync(id);
+            var nivelResponsavel = await _context.NivelResponsaveis.FindAsync(id);
             if (nivelResponsavel == null)
             {
                 return NotFound();
@@ -121,12 +121,12 @@ namespace LojaSystem.Controllers
         // GET: NivelResponsaveis/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Responsaveis == null)
+            if (id == null || _context.NivelResponsaveis == null)
             {
                 return NotFound();
             }
 
-            var nivelResponsavel = await _context.Responsaveis
+            var nivelResponsavel = await _context.NivelResponsaveis
                 .FirstOrDefaultAsync(m => m.IdNivel == id);
             if (nivelResponsavel == null)
             {
@@ -141,14 +141,14 @@ namespace LojaSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Responsaveis == null)
+            if (_context.NivelResponsaveis == null)
             {
-                return Problem("Entity set 'AppDBContext.Responsaveis'  is null.");
+                return Problem("Entity set 'AppDBContext.NivelResponsaveis'  is null.");
             }
-            var nivelResponsavel = await _context.Responsaveis.FindAsync(id);
+            var nivelResponsavel = await _context.NivelResponsaveis.FindAsync(id);
             if (nivelResponsavel != null)
             {
-                _context.Responsaveis.Remove(nivelResponsavel);
+                _context.NivelResponsaveis.Remove(nivelResponsavel);
             }
             
             await _context.SaveChangesAsync();
@@ -157,7 +157,7 @@ namespace LojaSystem.Controllers
 
         private bool NivelResponsavelExists(int id)
         {
-          return (_context.Responsaveis?.Any(e => e.IdNivel == id)).GetValueOrDefault();
+          return (_context.NivelResponsaveis?.Any(e => e.IdNivel == id)).GetValueOrDefault();
         }
     }
 }

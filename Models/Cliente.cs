@@ -17,5 +17,7 @@ namespace LojaSystem.Models
         public string? Telefone { get; set; }
         [Display(Name = "E-mail")]
         public string? Email { get; set; }
+
+        public ICollection<Servico>? Servicos { get; set; }
     }
 }

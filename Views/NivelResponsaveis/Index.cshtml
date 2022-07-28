@@ -4,13 +4,14 @@
     ViewData["Title"] = "Index";
 }
 
+
 <div class="card">
     <div class="card-body">
-        
-        <h2>Níveis Registrados</h2>
-        <input class="btn btn-primary" type="button" value="Registrar Novo Nível" onclick="location.href='@Url.Action("Create", "NivelResponsaveis")'" />
 
-        <hr />
+        <h2>Níveis Registrados</h2>
+        <input class="btn btn-primary" type="button" value="Registrar Novo Nível" 
+            onclick="location.href='@Url.Action("Create", "NivelResponsaveis")'" />
+
         <table class="table">
             <thead>
                 <tr>
@@ -29,7 +30,7 @@
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.IdNivel">Editar</a> |
                         <a asp-action="Details" asp-route-id="@item.IdNivel">Detalhes</a> |
-                        <a asp-action="Delete" asp-route-id="@item.IdNivel">Excluir</a>
+                        <a asp-action="Delete" asp-route-id="@item.IdNivel">Deletar</a>
                     </td>
                 </tr>
         }

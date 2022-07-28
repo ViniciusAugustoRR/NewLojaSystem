@@ -15,5 +15,6 @@ namespace LojaSystem.Models
         [Display(Name = "Nível")]
         public int NivelResponsavelId { get; set; }
 
+        public ICollection<Servico>? Servicos { get; set; }
     }
 }

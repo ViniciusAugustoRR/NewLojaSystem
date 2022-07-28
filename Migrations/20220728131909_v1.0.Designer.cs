@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LojaSystem.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20220727191524_Clientes Adicionado")]
-    partial class ClientesAdicionado
+    [Migration("20220728131909_v1.0")]
+    partial class v10
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -95,6 +95,43 @@ namespace LojaSystem.Migrations
                     b.ToTable("Marcas");
                 });
 
+            modelBuilder.Entity("LojaSystem.Models.NivelResponsavel", b =>
+                {
+                    b.Property<int>("IdNivel")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdNivel"), 1L, 1);
+
+                    b.Property<string>("Nivel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdNivel");
+
+                    b.ToTable("NivelResponsaveis");
+                });
+
+            modelBuilder.Entity("LojaSystem.Models.Responsavel", b =>
+                {
+                    b.Property<int>("IdResponsavel")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdResponsavel"), 1L, 1);
+
+                    b.Property<int>("NivelResponsavelId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdResponsavel");
+
+                    b.HasIndex("NivelResponsavelId");
+
+                    b.ToTable("Responsaveis");
+                });
+
             modelBuilder.Entity("LojaSystem.Models.Equipamento", b =>
                 {
                     b.HasOne("LojaSystem.Models.Marca", "MarcaEquipamento")
@@ -106,9 +143,25 @@ namespace LojaSystem.Migrations
                     b.Navigation("MarcaEquipamento");
                 });
 
+            modelBuilder.Entity("LojaSystem.Models.Responsavel", b =>
+                {
+                    b.HasOne("LojaSystem.Models.NivelResponsavel", "NivelResponsavel")
+                        .WithMany("Responsaveis")
+                        .HasForeignKey("NivelResponsavelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("NivelResponsavel");
+                });
+
             modelBuilder.Entity("LojaSystem.Models.Marca", b =>
                 {
                     b.Navigation("Equipamentos");
+                });
+
+            modelBuilder.Entity("LojaSystem.Models.NivelResponsavel", b =>
+                {
+                    b.Navigation("Responsaveis");
                 });
 #pragma warning restore 612, 618
         }

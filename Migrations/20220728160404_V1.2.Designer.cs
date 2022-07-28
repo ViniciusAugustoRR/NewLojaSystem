@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LojaSystem.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20220727130316_Alterações de servico")]
-    partial class Alteraçõesdeservico
+    [Migration("20220728160404_V1.2")]
+    partial class V12
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,29 +24,32 @@ namespace LojaSystem.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("LojaSystem.Models.ClienteModel", b =>
+            modelBuilder.Entity("LojaSystem.Models.Cliente", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("IdCliente")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCliente"), 1L, 1);
 
-                    b.Property<string>("Adress")
+                    b.Property<string>("Apelido")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Endereco")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("IdCliente");
 
-                    b.ToTable("Clientes");
+                    b.ToTable("Cliente");
                 });
 
             modelBuilder.Entity("LojaSystem.Models.Equipamento", b =>
@@ -60,7 +63,7 @@ namespace LojaSystem.Migrations
                     b.Property<string>("Acessorios")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("MarcaEquipamentoIdMarca")
+                    b.Property<int>("MarcaFK")
                         .HasColumnType("int");
 
                     b.Property<string>("Nome")
@@ -71,12 +74,12 @@ namespace LojaSystem.Migrations
 
                     b.HasKey("IdEquipamento");
 
-                    b.HasIndex("MarcaEquipamentoIdMarca");
+                    b.HasIndex("MarcaFK");
 
                     b.ToTable("Equipamentos");
                 });
 
-            modelBuilder.Entity("LojaSystem.Models.MarcaModel", b =>
+            modelBuilder.Entity("LojaSystem.Models.Marca", b =>
                 {
                     b.Property<int>("IdMarca")
                         .ValueGeneratedOnAdd()
@@ -85,6 +88,7 @@ namespace LojaSystem.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdMarca"), 1L, 1);
 
                     b.Property<string>("NomeMarca")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdMarca");
@@ -92,7 +96,23 @@ namespace LojaSystem.Migrations
                     b.ToTable("Marcas");
                 });
 
-            modelBuilder.Entity("LojaSystem.Models.ResponsavelModel", b =>
+            modelBuilder.Entity("LojaSystem.Models.NivelResponsavel", b =>
+                {
+                    b.Property<int>("IdNivel")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdNivel"), 1L, 1);
+
+                    b.Property<string>("Nivel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdNivel");
+
+                    b.ToTable("NivelResponsaveis");
+                });
+
+            modelBuilder.Entity("LojaSystem.Models.Responsavel", b =>
                 {
                     b.Property<int>("IdResponsavel")
                         .ValueGeneratedOnAdd()
@@ -100,18 +120,20 @@ namespace LojaSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdResponsavel"), 1L, 1);
 
-                    b.Property<string>("CategoriaResponsavel")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("NivelResponsavelId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("NameResponsavel")
+                    b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdResponsavel");
 
+                    b.HasIndex("NivelResponsavelId");
+
                     b.ToTable("Responsaveis");
                 });
 
-            modelBuilder.Entity("LojaSystem.Models.ServicoModel", b =>
+            modelBuilder.Entity("LojaSystem.Models.Servico", b =>
                 {
                     b.Property<int>("IdServico")
                         .ValueGeneratedOnAdd()
@@ -119,7 +141,7 @@ namespace LojaSystem.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdServico"), 1L, 1);
 
-                    b.Property<int>("ClienteServicoId")
+                    b.Property<int>("ClienteId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DataFinal")
@@ -128,57 +150,95 @@ namespace LojaSystem.Migrations
                     b.Property<DateTime>("DataInicio")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("EquipamentoServiceIdEquipamento")
+                    b.Property<int>("EquipamentoServicoId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ResponsavelServicoIdResponsavel")
+                    b.Property<int>("ResponsavelServicoId")
                         .HasColumnType("int");
 
                     b.HasKey("IdServico");
 
-                    b.HasIndex("ClienteServicoId");
+                    b.HasIndex("ClienteId");
 
-                    b.HasIndex("EquipamentoServiceIdEquipamento");
+                    b.HasIndex("EquipamentoServicoId");
 
-                    b.HasIndex("ResponsavelServicoIdResponsavel");
+                    b.HasIndex("ResponsavelServicoId");
 
-                    b.ToTable("Servicos");
+                    b.ToTable("Servico");
                 });
 
             modelBuilder.Entity("LojaSystem.Models.Equipamento", b =>
                 {
-                    b.HasOne("LojaSystem.Models.MarcaModel", "MarcaEquipamento")
-                        .WithMany()
-                        .HasForeignKey("MarcaEquipamentoIdMarca");
+                    b.HasOne("LojaSystem.Models.Marca", "MarcaEquipamento")
+                        .WithMany("Equipamentos")
+                        .HasForeignKey("MarcaFK")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("MarcaEquipamento");
                 });
 
-            modelBuilder.Entity("LojaSystem.Models.ServicoModel", b =>
+            modelBuilder.Entity("LojaSystem.Models.Responsavel", b =>
                 {
-                    b.HasOne("LojaSystem.Models.ClienteModel", "ClienteServico")
-                        .WithMany()
-                        .HasForeignKey("ClienteServicoId")
+                    b.HasOne("LojaSystem.Models.NivelResponsavel", "NivelResponsavel")
+                        .WithMany("Responsaveis")
+                        .HasForeignKey("NivelResponsavelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LojaSystem.Models.Equipamento", "EquipamentoService")
-                        .WithMany()
-                        .HasForeignKey("EquipamentoServiceIdEquipamento")
+                    b.Navigation("NivelResponsavel");
+                });
+
+            modelBuilder.Entity("LojaSystem.Models.Servico", b =>
+                {
+                    b.HasOne("LojaSystem.Models.Cliente", "ClienteServico")
+                        .WithMany("Servicos")
+                        .HasForeignKey("ClienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LojaSystem.Models.ResponsavelModel", "ResponsavelServico")
-                        .WithMany()
-                        .HasForeignKey("ResponsavelServicoIdResponsavel")
+                    b.HasOne("LojaSystem.Models.Equipamento", "EquipamentoServico")
+                        .WithMany("Servicos")
+                        .HasForeignKey("EquipamentoServicoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LojaSystem.Models.Responsavel", "ResponsavelServico")
+                        .WithMany("Servicos")
+                        .HasForeignKey("ResponsavelServicoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("ClienteServico");
 
-                    b.Navigation("EquipamentoService");
+                    b.Navigation("EquipamentoServico");
 
                     b.Navigation("ResponsavelServico");
+                });
+
+            modelBuilder.Entity("LojaSystem.Models.Cliente", b =>
+                {
+                    b.Navigation("Servicos");
+                });
+
+            modelBuilder.Entity("LojaSystem.Models.Equipamento", b =>
+                {
+                    b.Navigation("Servicos");
+                });
+
+            modelBuilder.Entity("LojaSystem.Models.Marca", b =>
+                {
+                    b.Navigation("Equipamentos");
+                });
+
+            modelBuilder.Entity("LojaSystem.Models.NivelResponsavel", b =>
+                {
+                    b.Navigation("Responsaveis");
+                });
+
+            modelBuilder.Entity("LojaSystem.Models.Responsavel", b =>
+                {
+                    b.Navigation("Servicos");
                 });
 #pragma warning restore 612, 618
         }

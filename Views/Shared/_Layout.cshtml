@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/LojaSystem.styles.css" asp-append-version="true" />
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 </head>
 <body>
     <header>
@@ -31,8 +35,15 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Equipamentos" asp-action="Index">Equipamentos</a>
                         </li>
-                        
-                       
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="NivelResponsaveis" asp-action="Index">Nívels de Acesso</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Responsaveis" asp-action="Index">Responsáveis</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Servicos" asp-action="Index">Serviços</a>
+                        </li>
                     </ul>
                 </div>
             </div>

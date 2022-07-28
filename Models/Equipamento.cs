@@ -19,6 +19,8 @@ namespace LojaSystem.Models
         [ForeignKey("MarcaEquipamento")]
         [Display(Name = "Marca")]
         public int MarcaFK { get; set; }
+
+        public ICollection<Servico>? Servicos { get; set; }
     }
 
 }
