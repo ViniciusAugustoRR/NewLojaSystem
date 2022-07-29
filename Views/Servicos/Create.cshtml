@@ -4,40 +4,51 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><!-- jQuery base library needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<h4>Servico</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="DataInicio" class="control-label"></label>
-                <input asp-for="DataInicio" class="form-control" />
-                <span asp-validation-for="DataInicio" class="text-danger"></span>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" rel="stylesheet" />
+
+<div class="card">
+    <div class="card-body">
+        <h2>Registrar Serviço</h2>
+
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="DataInicio" class="control-label"></label>
+                        <input asp-for="DataInicio" class="form-control" />
+                        <span asp-validation-for="DataInicio" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DataFinal" class="control-label"></label>
+                        <input asp-for="DataFinal" class="form-control" />
+                        <span asp-validation-for="DataFinal" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ClienteId" class="control-label"></label>
+                        <select class="select form-select" asp-for="ClienteId" class ="form-control" asp-items="ViewBag.ClienteId"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EquipamentoServicoId" class="control-label"></label>
+                        <select class="form-select" asp-for="EquipamentoServicoId" class ="form-control" asp-items="ViewBag.EquipamentoServicoId"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ResponsavelServicoId" class="control-label"></label>
+                        <select class="form-select" asp-for="ResponsavelServicoId" class ="form-control" asp-items="ViewBag.ResponsavelServicoId"></select>
+                    </div>
+
+                    <br />
+                    <div class="form-group">
+                        <input type="submit" value="Registrar" class="btn btn-primary" />
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="DataFinal" class="control-label"></label>
-                <input asp-for="DataFinal" class="form-control" />
-                <span asp-validation-for="DataFinal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClienteId" class="control-label"></label>
-                <select asp-for="ClienteId" class ="form-control" asp-items="ViewBag.ClienteId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="EquipamentoServicoId" class="control-label"></label>
-                <select asp-for="EquipamentoServicoId" class ="form-control" asp-items="ViewBag.EquipamentoServicoId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="ResponsavelServicoId" class="control-label"></label>
-                <select asp-for="ResponsavelServicoId" class ="form-control" asp-items="ViewBag.ResponsavelServicoId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
@@ -48,3 +59,14 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script>
+
+    $(document).ready(function () {
+        $('.select').select2({
+            theme: "bootstrap"
+        })
+    });
+
+</script>
+
