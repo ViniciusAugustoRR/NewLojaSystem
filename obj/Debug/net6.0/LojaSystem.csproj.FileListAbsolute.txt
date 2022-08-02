@@ -1042,3 +1042,4 @@ C:\Users\augusto\Desktop\PJ\NewLojaSystem\obj\Debug\net6.0\refint\LojaSystem.dll
 C:\Users\augusto\Desktop\PJ\NewLojaSystem\obj\Debug\net6.0\LojaSystem.pdb
 C:\Users\augusto\Desktop\PJ\NewLojaSystem\obj\Debug\net6.0\LojaSystem.genruntimeconfig.cache
 C:\Users\augusto\Desktop\PJ\NewLojaSystem\obj\Debug\net6.0\ref\LojaSystem.dll
+C:\Users\augusto\Desktop\PJ\NewLojaSystem\bin\Debug\net6.0\libman.json

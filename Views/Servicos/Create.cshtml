@@ -8,7 +8,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" rel="stylesheet" />
+<link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
+<!-- select2-bootstrap4-theme -->
+<link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.css" rel="stylesheet">
+
 
 <div class="card">
     <div class="card-body">
@@ -16,7 +19,7 @@
 
         <hr />
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-7">
                 <form asp-action="Create">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
@@ -24,22 +27,29 @@
                         <input asp-for="DataInicio" class="form-control" />
                         <span asp-validation-for="DataInicio" class="text-danger"></span>
                     </div>
+                    
                     <div class="form-group">
                         <label asp-for="DataFinal" class="control-label"></label>
                         <input asp-for="DataFinal" class="form-control" />
                         <span asp-validation-for="DataFinal" class="text-danger"></span>
                     </div>
+
                     <div class="form-group">
                         <label asp-for="ClienteId" class="control-label"></label>
-                        <select class="select form-select" asp-for="ClienteId" class ="form-control" asp-items="ViewBag.ClienteId"></select>
+                        <select class="select form-select form-control" asp-for="ClienteId" asp-items="ViewBag.ClienteId"></select>
+                        <span asp-validation-for="ClienteId" class="text-danger"></span>
                     </div>
+                    
                     <div class="form-group">
                         <label asp-for="EquipamentoServicoId" class="control-label"></label>
-                        <select class="form-select" asp-for="EquipamentoServicoId" class ="form-control" asp-items="ViewBag.EquipamentoServicoId"></select>
+                        <select class="select form-control form-select" asp-for="EquipamentoServicoId" asp-items="ViewBag.EquipamentoServicoId"></select>
+                        <span asp-validation-for="EquipamentoServicoId" class="text-danger"></span>
                     </div>
+                    
                     <div class="form-group">
                         <label asp-for="ResponsavelServicoId" class="control-label"></label>
-                        <select class="form-select" asp-for="ResponsavelServicoId" class ="form-control" asp-items="ViewBag.ResponsavelServicoId"></select>
+                        <select class="select form-select form-control" asp-for="ResponsavelServicoId" asp-items="ViewBag.ResponsavelServicoId"></select>
+                        <span asp-validation-for="ResponsavelServicoId" class="text-danger"></span>
                     </div>
 
                     <br />
@@ -47,6 +57,7 @@
                         <input type="submit" value="Registrar" class="btn btn-primary" />
                     </div>
                 </form>
+                
             </div>
         </div>
     </div>
@@ -64,7 +75,10 @@
 
     $(document).ready(function () {
         $('.select').select2({
-            theme: "bootstrap"
+            placeholder: "Selecione uma opção",
+            theme: "bootstrap4",
+            allowClear: true,
+            width: '100%'
         })
     });
 
