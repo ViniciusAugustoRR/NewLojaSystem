@@ -30,7 +30,8 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="MarcaFK" class="control-label"><label>Marca</label></label>
-                        <select asp-for="MarcaFK" class ="form-control" asp-items="ViewBag.MarcaFK"></select>
+                        <select asp-for="MarcaFK" class="select form-select form-control" asp-items="ViewBag.MarcaFK"></select>
+                        <span asp-validation-for="MarcaFK" class="text-danger"></span>
                     </div>
 
                     <br />
@@ -51,3 +52,16 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script>
+
+    $(document).ready(function () {
+        $('.select').select2({
+            placeholder: "Selecione uma opção",
+            theme: "bootstrap4",
+            allowClear: true,
+            width: '100%'
+        })
+    });
+
+</script>

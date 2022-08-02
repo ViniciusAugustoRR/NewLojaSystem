@@ -8,6 +8,8 @@ namespace LojaSystem.DB
 
         public AppDBContext(DbContextOptions<AppDBContext> options) : base(options)
         {}
+        
+        public DbSet<UserToken> Usuarios { get; set; }
         public DbSet<Marca> Marcas { get; set; }
         public DbSet<Equipamento> Equipamentos { get; set; }
         public DbSet<Cliente> Cliente { get; set; }
