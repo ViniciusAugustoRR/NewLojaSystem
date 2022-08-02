@@ -1,0 +1,66 @@
+﻿@model IEnumerable<LojaSystem.Models.Servico>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="card">
+    <div class="card-body">
+
+        <h2>Serviços</h2>
+        <input class="btn btn-primary" type="button" value="Registrar Nova Serviço" 
+            onclick="location.href='@Url.Action("Create", "Servicos")'" />
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataInicio)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataFinal)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ClienteServico)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EquipamentoServico)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ResponsavelServico)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+        @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataInicio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataFinal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClienteServico.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EquipamentoServico.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ResponsavelServico.Nome)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.IdServico">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.IdServico">Detalhes</a> |
+                        <a asp-action="Delete" asp-route-id="@item.IdServico">Deletar</a>
+                    </td>
+                </tr>
+        }
+            </tbody>
+        </table>
+
+    </div>
+</div>

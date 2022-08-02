@@ -1,0 +1,77 @@
+﻿@model LojaSystem.Models.Servico
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="card">
+    <div class="card-body">
+        <h2>Editar Serviço</h2>
+
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="IdServico" />
+                    <div class="form-group">
+                        <label asp-for="DataInicio" class="control-label"></label>
+                        <input asp-for="DataInicio" class="form-control" />
+                        <span asp-validation-for="DataInicio" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DataFinal" class="control-label"></label>
+                        <input asp-for="DataFinal" class="form-control" />
+                        <span asp-validation-for="DataFinal" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ClienteId" class="control-label"></label>
+                        <select asp-for="ClienteId" class="select form-select form-control" asp-items="ViewBag.ClienteId"></select>
+                        <span asp-validation-for="ClienteId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EquipamentoServicoId" class="control-label"></label>
+                        <select asp-for="EquipamentoServicoId" class="select form-select form-control" asp-items="ViewBag.EquipamentoServicoId"></select>
+                        <span asp-validation-for="EquipamentoServicoId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ResponsavelServicoId" class="control-label"></label>
+                        <select asp-for="ResponsavelServicoId"class="select form-select form-control" asp-items="ViewBag.ResponsavelServicoId"></select>
+                        <span asp-validation-for="ResponsavelServicoId" class="text-danger"></span>
+                    </div>
+
+
+                    <br />
+                    <div class="form-group">
+                        <input type="submit" value="Salvar Alterações" class="btn btn-primary" />
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retornar para a Lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+<script>
+
+    $(document).ready(function () {
+        $('.select').select2({
+            placeholder: "Selecione uma opção",
+            theme: "bootstrap4",
+            allowClear: true,
+            width: '100%'
+        })
+    });
+
+</script>
