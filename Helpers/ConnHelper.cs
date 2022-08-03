@@ -12,5 +12,6 @@ namespace LojaSystem.Helpers
             _ConnectionString = ConnectionString;
             SqlConn = new SqlConnection(_ConnectionString);
         }
+
     }
 }

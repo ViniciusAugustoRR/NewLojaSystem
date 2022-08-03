@@ -12,6 +12,19 @@ namespace LojaSystem.Controllers
         private IConfiguration _Config;
         private ConnHelper Conn;
 
+        public IActionResult Login([FromBody] UserToken loginUser)
+        {
+            bool result = ValidateUser(loginUser);
+
+            if (result)
+            {
+                var tokenString = GerarTokenJWT();
+                return Ok(new { token = tokenString });
+            }
+
+            return Unauthorized();
+        }
+
         public Seguranca(IConfiguration Configuration)
         {
             _Config = Configuration;
