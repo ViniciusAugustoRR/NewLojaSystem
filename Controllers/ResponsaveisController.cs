@@ -57,7 +57,7 @@ namespace LojaSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdResponsavel,Nome,NivelResponsavelId")] Responsavel responsavel)
+        public async Task<IActionResult> Create([Bind("IdResponsavel,Nome,Email,Login,Senha,NivelResponsavelId")] Responsavel responsavel)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace LojaSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdResponsavel,Nome,NivelResponsavelId")] Responsavel responsavel)
+        public async Task<IActionResult> Edit(int id, [Bind("IdResponsavel,Nome,Email,Login,Senha,NivelResponsavelId")] Responsavel responsavel)
         {
             if (id != responsavel.IdResponsavel)
             {

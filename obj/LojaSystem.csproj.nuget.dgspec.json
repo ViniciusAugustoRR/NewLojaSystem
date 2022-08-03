@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\XAMARIM\\NewLojaSystem\\LojaSystem.csproj": {}
+    "C:\\Users\\augusto\\Desktop\\PJ\\NewLojaSystem\\LojaSystem.csproj": {}
   },
   "projects": {
-    "D:\\XAMARIM\\NewLojaSystem\\LojaSystem.csproj": {
+    "C:\\Users\\augusto\\Desktop\\PJ\\NewLojaSystem\\LojaSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\XAMARIM\\NewLojaSystem\\LojaSystem.csproj",
+        "projectUniqueName": "C:\\Users\\augusto\\Desktop\\PJ\\NewLojaSystem\\LojaSystem.csproj",
         "projectName": "LojaSystem",
-        "projectPath": "D:\\XAMARIM\\NewLojaSystem\\LojaSystem.csproj",
+        "projectPath": "C:\\Users\\augusto\\Desktop\\PJ\\NewLojaSystem\\LojaSystem.csproj",
         "packagesPath": "C:\\Users\\augusto\\.nuget\\packages\\",
-        "outputPath": "D:\\XAMARIM\\NewLojaSystem\\obj\\",
+        "outputPath": "C:\\Users\\augusto\\Desktop\\PJ\\NewLojaSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

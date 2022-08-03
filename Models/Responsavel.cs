@@ -7,10 +7,24 @@ namespace LojaSystem.Models
     {
         [Key]
         public int IdResponsavel { get; set; }
+
         [Display(Name = "Nome de Responsável")]
         public string? Nome { get; set; }
+
+        [Display(Name = "E-mail")]
+        public string? Email { get; set; }
+
+
+        [Display(Name = "Login")]
+        public string? Login { get; set; }
+
+        [Display(Name = "Senha")]
+        public string? Senha { get; set; }
+
+
         [Display(Name = "Nível")]
         public NivelResponsavel? NivelResponsavel { get; set; }
+
         [ForeignKey("NivelResponsavel")]
         [Display(Name = "Nível")]
         public int NivelResponsavelId { get; set; }

@@ -1308,3 +1308,6 @@ D:\XAMARIM\NewLojaSystem\obj\Debug\net6.0\ref\LojaSystem.dll
 D:\XAMARIM\NewLojaSystem\bin\Debug\net6.0\JWT.dll
 D:\XAMARIM\NewLojaSystem\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\XAMARIM\NewLojaSystem\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\augusto\Desktop\PJ\NewLojaSystem\bin\Debug\net6.0\JWT.dll
+C:\Users\augusto\Desktop\PJ\NewLojaSystem\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\augusto\Desktop\PJ\NewLojaSystem\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
