@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BbfgUW8Y6MlXe5ubcPHZq7SECeCTSS61hIumik7ozLuzh7VlxsYq6Dyhu3jgA7UAhJ88b+4/ErncXP3QhPHHQg==",
+  "dgSpecHash": "tlfzKPVU+xTWRsGrHQnjcx+w30Hwt1bxnIWx86ETK2I1ZqB6rx0vTRb22o3TYbKilZ5+Wb+iT1N8f98bL3U6Tw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\augusto\\Desktop\\PJ\\NewLojaSystem\\LojaSystem.csproj",
+  "projectFilePath": "D:\\XAMARIM\\NewLojaSystem\\LojaSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\augusto\\.nuget\\packages\\bootstrap\\5.1.3\\bootstrap.5.1.3.nupkg.sha512",
     "C:\\Users\\augusto\\.nuget\\packages\\bootstrap-select\\1.13.18\\bootstrap-select.1.13.18.nupkg.sha512",
