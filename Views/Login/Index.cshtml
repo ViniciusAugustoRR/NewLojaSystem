@@ -44,13 +44,13 @@
                                 </div>
                             </div>
                         </div>
-
                         <hr />
 
                         <div class="row">
                             <div class="form-group" style="float:left; margin-left:20%;" >
                                 <input type="button" value="Login" class="btn btn-primary" />
                                 <input type="button" value="Cadastra-se" class="btn btn-primary" />
+                                @*HashBytes('MD5', Convert(varbinary(max),@USU_SENHA))*@
                             </div>
                         </div>
                         
@@ -63,6 +63,29 @@
 
 </body>
 
+@*ALTER PROCEDURE LS_LOGIN_VERIFY
+@USER VARCHAR(50),
+@PASSWORD VARCHAR(50)
+AS
+BEGIN
+	
+	IF(SELECT COUNT(*) 
+	    FROM Responsaveis 
+	    WHERE
+	    Responsaveis.Login = @USER
+		AND Responsaveis.Senha = (SELECT HashBytes('MD5', CONVERT(VARBINARY(MAX), CONVERT(VARCHAR, @PASSWORD))))) < 1 
+    BEGIN
+		
+		SELECT 
+			IdResponsavel,
+			NivelResponsavelId,
+			Nome
+		FROM Responsaveis
+		WHERE Login = @USER
+
+	END
+
+END*@
 
 
 
