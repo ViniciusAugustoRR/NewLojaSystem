@@ -16,9 +16,11 @@ namespace LojaSystem.Models
 
 
         [Display(Name = "Login")]
+        [MaxLength(50)]
         public string? Login { get; set; }
 
         [Display(Name = "Senha")]
+        [MaxLength(50)]
         public string? Senha { get; set; }
 
 

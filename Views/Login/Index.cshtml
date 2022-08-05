@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/LojaSystem.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/jquery/dist/jquery.js" asp-append-version="true" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><!-- jQuery base library needed -->
+
+</head>
+
+
+<body>
+    
+    <div class="outer">
+        <div class="middle">
+            <div class="inner">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h1>Loja System</h1>
+                        <hr />
+
+                        <div class="center">
+                            <div class="card" style="width:50%;">
+                                <div class="card-body" >
+                                    <div class="form-group">
+                                        <label class="control-label"> Usuário</label>
+                                        <input class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Password</label>
+                                        <input class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <div class="row">
+                            <div class="form-group" style="float:left; margin-left:20%;" >
+                                <input type="button" value="Login" class="btn btn-primary" />
+                                <input type="button" value="Cadastra-se" class="btn btn-primary" />
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+
+
+
+<style>
+    .outer {
+        display: table;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+    .middle {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .inner {
+        margin-left: auto;
+        margin-right: auto;
+        width: 600px;
+    }
+    .center{
+        display: flex;
+        justify-content: center;
+    }
+    
+
+</style>
+

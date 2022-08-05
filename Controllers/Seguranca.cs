@@ -54,7 +54,7 @@ namespace LojaSystem.Controllers
         {
             try
             {
-                if (user.UserName == _Config["Session:mainUser"] 
+                if (user.UserName == _Config["Session:mainUser"]
                     && user.Password == _Config["Session:mainPassword"])
                     return true;
                 
