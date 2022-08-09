@@ -7,21 +7,23 @@ using System.Text;
 
 namespace LojaSystem.Controllers
 {
-    public class Seguranca : ControllerBase
+    public class Seguranca : Controller
     {
         private IConfiguration _Config;
 
-        public IActionResult Login([FromBody] UserToken loginUser)
+        [HttpPost]
+        public JsonResult Login([FromBody] UserToken loginUser)
         {
             bool result = ValidateUser(loginUser);
 
             if (result)
             {
                 var tokenString = GerarTokenJWT();
-                return Ok(new { token = tokenString });
+                return Json(new { token = tokenString });
             }
 
-            return Unauthorized();
+            return Json(new { error = true});
+
         }
         public IActionResult TokenVerify([FromBody] string jwt)
         {
