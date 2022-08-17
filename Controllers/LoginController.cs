@@ -16,6 +16,10 @@ namespace LojaSystem.Controllers
             return View();
         }
 
+        public void SessionLogin()
+        {
+        }
+
         [HttpGet]
         public JsonResult VerifyLogin(string user, string password)
         {

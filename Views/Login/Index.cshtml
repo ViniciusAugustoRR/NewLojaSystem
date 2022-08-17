@@ -81,7 +81,6 @@
 
         Requisicao('GET', url,
             function(retorno) {
-                console.log(retorno)
                 GetToken()
             }
         );
@@ -99,7 +98,7 @@
 
         Requisicao('POST', url,
             function(retorno) {
-                console.log(retorno)
+                
             },
             JSON.stringify(body)
         );
