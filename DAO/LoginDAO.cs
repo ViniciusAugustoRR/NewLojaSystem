@@ -14,7 +14,7 @@ namespace LojaSystem.DAO
             _Connection = new ConnHelper(ConnectionString);
         }
 
-        public bool VerifyLogin(string user, string password)
+        public Responsavel VerifyLogin(string user, string password)
         {
             Responsavel resp = new Responsavel();
             List<SqlParameter> parameters = new List<SqlParameter>();
@@ -29,16 +29,18 @@ namespace LojaSystem.DAO
             {
                 try
                 {
-                    
-
+                    resp.IdResponsavel = int.TryParse(reader["IdResponsavel"].ToString(), out int r) ? r : 0;
+                    resp.NivelResponsavelId = int.TryParse(reader["NivelResponsavelId"].ToString(), out int n)? n : 0;
+                    resp.Nome = reader["Nome"].ToString();
                 }
-                catch(Exception e)
+                catch (Exception)
                 {
-                    throw e;
+                    _Connection.CloseReader();
+                    throw;
                 }
             }
-
-            return false; 
+            _Connection.CloseReader();
+            return resp; 
         }
 
 

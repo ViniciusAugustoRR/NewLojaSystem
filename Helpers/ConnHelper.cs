@@ -5,39 +5,47 @@ namespace LojaSystem.Helpers
 {
     public class ConnHelper
     {
-        public SqlConnection SqlConn;
-        public string _ConnectionString;
+        private SqlConnection SqlConn;
+        private string _ConnectionString;
 
         public ConnHelper(string ConnectionString)
         {
             _ConnectionString = ConnectionString;
-            SqlConn = new SqlConnection(_ConnectionString);
+            
         }
 
         
         public SqlDataReader ExecuteReader(string query, SqlParameter[] parameters)
         {
             SqlDataReader dr = null;
-            SqlConnection conn = new SqlConnection();
             SqlCommand cmd = new SqlCommand();
-
+            
             try
             {
-                conn.Open();
-                cmd.Connection = conn;
+                OpenReader();
+                cmd.Connection = SqlConn;
                 cmd.CommandText = query;
                 cmd.Parameters.AddRange(parameters);
-                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                conn.Close();
+                dr = cmd.ExecuteReader();
             }
             catch (Exception ex)
             {
                 if (dr != null) { dr.Close(); }
-                conn.Close();
+                SqlConn.Close();
                 throw ex;
             }
 
             return dr;
+        }
+
+        public void OpenReader()
+        {
+            SqlConn = new SqlConnection(_ConnectionString);
+            SqlConn.Open();
+        }
+        public void CloseReader()
+        {
+            SqlConn.Close();
         }
 
         

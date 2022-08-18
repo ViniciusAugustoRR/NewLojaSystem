@@ -5,6 +5,7 @@ namespace LojaSystem.Models
 {
     public class Responsavel
     {
+
         [Key]
         public int IdResponsavel { get; set; }
 

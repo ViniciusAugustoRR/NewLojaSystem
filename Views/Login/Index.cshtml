@@ -50,7 +50,7 @@
 
                         <div class="row">
                             <div class="form-group" style="float:left; margin-left:20%;" >
-                                <input type="button" value="Login" class="btn btn-primary" onclick="VerifyLogin()"/>
+                                <input type="button" value="Login" class="btn btn-primary" onclick="TryLogin()"/>
                                 <input type="button" value="Cadastra-se" class="btn btn-primary" />
                                 @*HashBytes('MD5', Convert(varbinary(max),@USU_SENHA))*@
                             </div>
@@ -70,42 +70,49 @@
 
 <script>
 
+    $(document).ready(function() { });
+
     var user;
     var password;
 
-    function VerifyLogin(){
+    function TryLogin() {
         user = $('#username').val()
-        password = $('#password').val()        
-        var url = "Login/VerifyLogin?user=" + user + "&password=" + password
-        
-
-        Requisicao('GET', url,
-            function(retorno) {
-                GetToken()
-            }
-        );
-
-
-    }
-
-    function GetToken() {
+        password = $('#password').val()
 
         var body = {
             "UserName": user,
             "Password": password
         }
-        var url = "seguranca/Login"
 
-        Requisicao('POST', url,
+        RequisicaoJSON('POST', 'seguranca/Login',
             function(retorno) {
-                
+                console.log(retorno)
+
+                if (retorno.error === true) {
+                    alert(retorno.errorMessage)
+                } else {
+
+                    var tokenBD = { '_UserToken': retorno.token }
+                    //RequisicaoJSON('POST', 'Url.Action("VerifyToken", "Login")',
+                    //    null,
+                    //    JSON.stringify(tokenBD)
+                    //);go
+                    
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("VerifyToken", "Login")',
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(tokenBD)
+                    });
+                }
             },
             JSON.stringify(body)
         );
     }
 
+    
 
-    async function Requisicao(tipo, url, funcao, dados) {
+    async function RequisicaoJSON(tipo, url, funcao, dados) {
         await $.ajax({
             type: tipo,
             url: url,
@@ -125,34 +132,28 @@
             }
         });
     }
+    async function RequisicaoString(tipo, url, funcao, dados) {
+        await $.ajax({
+            type: tipo,
+            url: url,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'text',
+            cache: false,
+            async: true,
+            data: dados,
+            success: funcao,
+            error: function (xhr, ajaxOptions, thrownError) {
+                if (xhr.status == 401) 
+                { alert("Session Expired!"); window.location = 
+                    "/Account"; }
+                else {
+                    alert('Content load failed!', "info");
+                }
+            }
+        });
+    }
 
 </script>
-
-
-@*ALTER PROCEDURE LS_LOGIN_VERIFY
-@USER VARCHAR(50),
-@PASSWORD VARCHAR(50)
-AS
-BEGIN
-	
-	IF(SELECT COUNT(*) 
-	    FROM Responsaveis 
-	    WHERE
-	    Responsaveis.Login = @USER
-		AND Responsaveis.Senha = (SELECT HashBytes('MD5', CONVERT(VARBINARY(MAX), CONVERT(VARCHAR, @PASSWORD))))) < 1 
-    BEGIN
-		
-		SELECT 
-			IdResponsavel,
-			NivelResponsavelId,
-			Nome
-		FROM Responsaveis
-		WHERE Login = @USER
-
-	END
-
-END*@
-
 
 
 
