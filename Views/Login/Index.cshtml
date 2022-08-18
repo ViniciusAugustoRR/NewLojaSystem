@@ -1,0 +1,185 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><!-- jQuery base library needed -->
+    
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/LojaSystem.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/jquery/dist/jquery.js" asp-append-version="true" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+
+<body>
+    
+    <div class="outer">
+        <div class="middle">
+            <div class="inner">
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h1>Loja System</h1>
+                        <hr />
+
+                        <div class="center">
+                            <div class="card" style="width:50%;">
+                                <div class="card-body" >
+                                    <div class="form-group">
+                                        <label class="control-label"> Usuário</label>
+                                        <input id="username" class="form-control" value="Alberto"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Password</label>
+                                        <input id="password" class="form-control" value="123456"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+
+                        <div class="row">
+                            <div class="form-group" style="float:left; margin-left:20%;" >
+                                <input type="button" value="Login" class="btn btn-primary" onclick="TryLogin()"/>
+                                <input type="button" value="Cadastra-se" class="btn btn-primary" />
+                                @*HashBytes('MD5', Convert(varbinary(max),@USU_SENHA))*@
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+<script href="~/js/Requisicoes.js"></script>
+
+<script>
+
+    $(document).ready(function() { });
+
+    var user;
+    var password;
+
+    function TryLogin() {
+        user = $('#username').val()
+        password = $('#password').val()
+
+        var body = {
+            "UserName": user,
+            "Password": password
+        }
+
+        RequisicaoJSON('POST', 'seguranca/Login',
+            function(retorno) {
+                console.log(retorno)
+
+                if (retorno.error === true) {
+                    alert(retorno.errorMessage)
+                } else {
+
+                    var tokenBD = { '_UserToken': retorno.token }
+                    //RequisicaoJSON('POST', 'Url.Action("VerifyToken", "Login")',
+                    //    null,
+                    //    JSON.stringify(tokenBD)
+                    //);go
+                    
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("VerifyToken", "Login")',
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(tokenBD)
+                    });
+                }
+            },
+            JSON.stringify(body)
+        );
+    }
+
+    
+
+    async function RequisicaoJSON(tipo, url, funcao, dados) {
+        await $.ajax({
+            type: tipo,
+            url: url,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            cache: false,
+            async: true,
+            data: dados,
+            success: funcao,
+            error: function (xhr, ajaxOptions, thrownError) {
+                if (xhr.status == 401) 
+                { alert("Session Expired!"); window.location = 
+                    "/Account"; }
+                else {
+                    alert('Content load failed!', "info");
+                }
+            }
+        });
+    }
+    async function RequisicaoString(tipo, url, funcao, dados) {
+        await $.ajax({
+            type: tipo,
+            url: url,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'text',
+            cache: false,
+            async: true,
+            data: dados,
+            success: funcao,
+            error: function (xhr, ajaxOptions, thrownError) {
+                if (xhr.status == 401) 
+                { alert("Session Expired!"); window.location = 
+                    "/Account"; }
+                else {
+                    alert('Content load failed!', "info");
+                }
+            }
+        });
+    }
+
+</script>
+
+
+
+<style>
+    .outer {
+        display: table;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+    .middle {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .inner {
+        margin-left: auto;
+        margin-right: auto;
+        width: 600px;
+    }
+    .center{
+        display: flex;
+        justify-content: center;
+    }
+    
+
+</style>
+
